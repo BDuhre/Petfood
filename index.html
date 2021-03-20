@@ -1,0 +1,281 @@
+<!--
+Mobile web development 
+Template for General purpose html5 page with JQuery Mobile
+Created by: Balraj Duhre
+email:      sahmed@conestogac.on.ca
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <link rel="fav icon" href="img/logo.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>Primal</title>
+        <!-- jQuery-->
+        <script src="js/lib/jquery-2.1.4.js"></script>
+        <!-- jQuery mobile-->
+        <script src="js/lib/jquery.mobile-1.4.5.js"></script>
+        <!-- jQuery-->
+        <script src="js/lib/jquery.validate.js"></script>
+        <!-- jQuery mobile css-->
+        <link rel="stylesheet" href="css/lib/jquery.mobile-1.4.5.css">
+        <!-- My stylesheet-->
+        <link rel="stylesheet" href="css/bdmystyle.css">
+        <!-- My JavaScript files-->
+        <script src="js/bddatabase.js"></script>
+        <script src="js/bdfeedbackDAL.js"></script>
+        <script src="js/bdglobal.js"></script>
+        <script src="js/bdutil.js"></script>
+        <script src="js/bdfacade.js"></script>
+    </head>
+
+    <body>
+        <!-- Home page-->
+        <div data-role="page" id="bdHomePage">
+            <header data-role="header" data-position="fixed" data-theme="b">
+                <h1>Primal</h1>
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#bdHomePage" data-icon="plus" data-theme="a" class="ui-btn-active ui-state-persist">Product</a></li>
+                        <li><a href="#bdCartPage" data-icon="shop" data-theme="a">Cart</a></li>
+                        <li><a href="#bdAboutPage" data-icon="star" data-theme="a">About</a></li>
+                    </ul>
+                </div>
+            </header>
+            <div>
+                <section data-role="content">
+                    <form>
+                        <ul data-role="listview" class="ui-listview-inset" id="bdProductList">
+                            <li>
+                                <p><img src="img/coast.png" name="Acana: Wild Coast" height="200" width="200" /></p>
+                                <label>Name:</label>
+                                <p id="bdProductName">Acana: Wild Coast</p>
+                                <label>Size:</label>
+                                <p id="bdProductWeight">17 Kg</p>
+                                <label>Price:</label>
+                                <p id="bdProductPrice">$150</p>
+                                <button type="button" id="bdAddProductToCartBtn" value="saveProduct" style="background-color: black; color: white">Add To Cart
+                                </button>
+                            </li>
+                            <li>
+                                <p><img src="img/classics-red.png" name="Acana: Classic Red" height="200" width="200" /></p>
+                                <label>Name:</label>
+                                <p id="bdProductName2">Acana: Classic Red</p>
+                                <label>Size:</label>
+                                <p id="bdProductWeight2">17 Kg</p>
+                                <label>Price:</label>
+                                <p id="bdProductPrice2">$120</p>
+                                <button type="button" id="bdAddProductToCartBtn2" value="saveProduct" style="background-color: black; color: white">Add To Cart
+                                </button>
+                            </li>
+                            <li>
+                                <p><img src="img/poultry.png" name="Acana: Prairie Poultry" height="200" width="200" /></p>
+                                <label>Name:</label>
+                                <p id="bdProductName3">Acana: Prairie Poultry</p>
+                                <label>Size:</label>
+                                <p id="bdProductWeight3">17 Kg</p>
+                                <label>Price:</label>
+                                <p id="bdProductPrice3">$180</p>
+                                <button type="button" id="bdAddProductToCartBtn3" value="saveProduct" style="background-color: black; color: white">Add To Cart
+                                </button>
+                            </li>
+                        </ul>
+                    </form>
+                </section>
+            </div>
+            <footer data-role="footer" data-position="fixed" data-theme="b">
+                <h4>&copy;2020 - Balraj Duhre</h4>
+            </footer>
+        </div>
+        <!-- Cart page-->
+        <div data-role="page" id="bdCartPage">
+            <header data-role="header" data-position="fixed" data-theme="b">
+                <h1>Cart</h1>
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#bdHomePage" data-icon="plus" data-theme="a">Product</a></li>
+                        <li><a href="#bdCartPage" data-icon="shop" data-theme="a" class="ui-btn-active ui-state-persist">Cart</a></li>
+                        <li><a href="#bdAboutPage" data-icon="star" data-theme="a">About</a></li>
+                    </ul>
+                </div>
+            </header>
+            <div>
+                <section data-role="content">
+                    <ul data-role="listview" class="ui-listview-inset" id="bdCartList">
+                    </ul>
+                    <button type="button" id="bdBtnShippingAddress" value="save" style="background-color: black; color: white">Enter Shipping Information
+                    </button>
+                    <button type="button" id="bdBtnDropCart" value="save" style="background-color: black; color: white">Clear Cart
+                    </button>
+                </section>
+            </div>
+            <footer data-role="footer" data-position="fixed" data-theme="b">
+                <h4>&copy;2020 - Balraj Duhre</h4>
+            </footer>
+        </div>
+        <!-- Shipping Address page-->
+        <div data-role="page" id="bdShippingAddressPage">
+            <header data-role="header" data-position="fixed" data-theme="b">
+                <h1>Shipping Address</h1>
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#bdHomePage" data-icon="plus" data-theme="a">Product</a></li>
+                        <li><a href="#bdCartPage" data-icon="shop" data-theme="a" class="ui-btn-active ui-state-persist">Cart</a></li>
+                        <li><a href="#bdAboutPage" data-icon="star" data-theme="a">About</a></li>
+                    </ul>
+                </div>
+            </header>
+            <div>
+                <section data-role="content">
+                    <form id="bdShippingInformationForm">
+                        <h1>Shipping Information</h1>
+                        <label>Address Line 1</label>
+                        <input type="text" id="bdAddressLine1" name="bdAddressLine1">
+                        <label>Address Line 2(Optional)</label>
+                        <input type="text" id="bdAddressLine2" name="bdAddressLine2">
+                        <label>City</label>
+                        <input type="text" id="bdCity" name="bdCity">
+                        <label>Province</label>
+                        <select name="bdProvince" id="bdProvince">
+                        </select>
+                        <label>Postal Code</label>
+                        <input type="text" id="bdPostalCode" name="bdPostalCode">
+                        <h1>Contact Information</h1>
+                        <label>Email</label>
+                        <input type="text" id="bdEmailAddress" name="bdEmailAddress">
+                        <label>Phone</label>
+                        <input type="text" id="bdPhone" name="bdPhone">
+                        <button type="button" id="bdBtnPayment" value="submit" style="background-color: black; color: white">Proceed To Payment
+                        </button>
+                        <button type="button" id="bdBtnBack" value="save" style="background-color: black; color: white">Back
+                        </button>
+                        <button type="button" id="bdBtnDropShippingInformation" value="save" style="background-color: black; color: white">Clear Shipping Information
+                        </button>
+                    </form>
+                </section>
+            </div>
+            <footer data-role="footer" data-position="fixed" data-theme="b">
+                <h4>&copy;2020 - Balraj Duhre</h4>
+            </footer>
+        </div>
+        <!-- Payment page-->
+        <div data-role="page" id="bdPaymentPage">
+            <header data-role="header" data-position="fixed" data-theme="b">
+                <h1>Payment</h1>
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#bdHomePage" data-icon="plus" data-theme="a">Product</a></li>
+                        <li><a href="#bdCartPage" data-icon="shop" data-theme="a" class="ui-btn-active ui-state-persist">Cart</a></li>
+                        <li><a href="#bdAboutPage" data-icon="star" data-theme="a">About</a></li>
+                    </ul>
+                </div>
+            </header>
+            <div>
+                <section data-role="content">
+                    <form id="bdPaymentForm">
+                        <h1>Payment</h1>
+                        <label>Cardholder Name</label>
+                        <input type="text" id="bdCardholder" name="bdCardholder">
+                        <label>Card Number</label>
+                        <input type="text" id="bdCardNumber" name="bdCardNumber">
+                        <label>Card Type</label>
+                        <select name="bdCardType" id="bdCardType">
+                        </select>
+                        <label>CVV</label>
+                        <input type="text" id="bdCVV" name="bdCVV">
+                        <label>Expiry Date</label>
+                        <input type="month" id="bdExpiryDate" name="bdExpiryDate">
+                        <button type="button" id="bdBtnSubmitPayment" value="submit" style="background-color: black; color: white">Pay
+                        </button>
+                        <button type="button" id="bdBtnGotoShipping" value="save" style="background-color: black; color: white">Back
+                        </button>
+                        <button type="button" id="bdBtnDropPayment" value="save" style="background-color: black; color: white">Clear Payment Information
+                        </button>
+                    </form>
+                </section>
+            </div>
+            <footer data-role="footer" data-position="fixed" data-theme="b">
+                <h4>&copy;2020 - Balraj Duhre</h4>
+            </footer>
+        </div>
+        <!-- Confirmation page-->
+        <div data-role="page" id="bdConfirmationPage">
+            <header data-role="header" data-position="fixed" data-theme="b">
+                <h1>Confirmation</h1>
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#bdHomePage" data-icon="plus" data-theme="a">Product</a></li>
+                        <li><a href="#bdCartPage" data-icon="shop" data-theme="a" class="ui-btn-active ui-state-persist">Cart</a></li>
+                        <li><a href="#bdAboutPage" data-icon="star" data-theme="a">About</a></li>
+                    </ul>
+                </div>
+            </header>
+            <div>
+                <section data-role="content">
+                    <h1>Confirm your details</h1>
+                    <h4>Cart</h4>
+                    <ul data-role="listview" class="ui-listview-inset" id="bdCartConfirm">
+                    </ul>
+                    <h4>Shipping Information</h4>
+                    <ul data-role="listview" class="ui-listview-inset" id="bdShipConfirm">
+                    </ul>
+                    <h4>Payment Information</h4>
+                    <ul data-role="listview" class="ui-listview-inset" id="bdPayConfirm">
+                    </ul>
+                    <button type="button" id="bdBtnConfirmPay" value="save" style="background-color: black; color: white">Place Order
+                    </button>
+                    <button type="button" id="bdBtnConfirmCart" value="save" style="background-color: black; color: white">Back To Cart
+                    </button>
+                    <button type="button" id="bdBtnConfirmShip" value="save" style="background-color: black; color: white">Back To Shipping
+                    </button>
+                    <button type="button" id="bdBtnConfirmPayment" value="save" style="background-color: black; color: white">Back To Payment
+                    </button>
+                </section>
+            </div>
+            <footer data-role="footer" data-position="fixed" data-theme="b">
+                <h4>&copy;2020 - Balraj Duhre</h4>
+            </footer>
+        </div>
+        <!-- Thank You page-->
+        <div data-role="page" id="bdThankyouPage">
+            <header data-role="header" data-position="fixed" data-theme="b">
+                <h1>Confirmation Page</h1>
+            </header>
+            <div>
+                <section data-role="content">
+                    <h1>Thank You for shopping with us! Shop again!</h1>
+                    <button type="button" id="bdBtnGotoHome" value="save" style="background-color: black; color: white">Home
+                    </button>
+                </section>
+            </div>
+            <footer data-role="footer" data-position="fixed" data-theme="b">
+                <h4>&copy;2020 - Balraj Duhre</h4>
+            </footer>
+        </div>
+        <div data-role="page" id="bdAboutPage">
+            <header data-role="header" data-position="fixed" data-theme="b">
+                <h1>About</h1>
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#bdHomePage" data-icon="plus" data-theme="a">Product</a></li>
+                        <li><a href="#bdCartPage" data-icon="shop" data-theme="a">Cart</a></li>
+                        <li><a href="#bdAboutPage" data-icon="star" data-theme="a" class="ui-btn-active ui-state-persist">About</a></li>
+                    </ul>
+                </div>
+
+            </header>
+            <div>
+                <section data-role="content">
+                    <p>Developer Name: Balraj Duhre</p>
+                    <p>Student ID: 5520804</p>
+                    <p>Email: <a href="mailto:bduhre0804@conestogac.on.ca">bduhre-cc@conestogac.on.ca</a></p>
+                </section>
+                <img src="img/primal.jpg" width="300px" />
+                <footer data-role="footer" data-position="fixed" data-theme="b">
+                    <h4>&copy;2020 - Balraj Duhre</h4>
+                </footer>
+            </div>
+    </body>
+
+</html>

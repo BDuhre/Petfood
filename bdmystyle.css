@@ -1,0 +1,37 @@
+
+
+
+label.error{
+    color: #F00;
+    font-weight: bold;
+}
+
+input.error,
+select.error,
+textarea.error {
+    border: 1px red solid;
+}
+
+header h1{
+    font-family: "Comic Sans MS";
+}
+
+#bdProductName,
+#bdProductName2,
+#bdProductName3,
+#bdProductPrice,
+#bdProductPrice2,
+#bdProductPrice3,
+#bdProductWeight,
+#bdProductWeight2,
+#bdProductWeight3{
+    font-size: medium;
+}
+
+#bdHomePage label{
+    font-weight: bold;
+}
+
+#bdCartPage label{
+    font-weight: bold;
+}
